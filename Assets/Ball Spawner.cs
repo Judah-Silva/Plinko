@@ -15,14 +15,13 @@ public class BallSpawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float r = (Random.value * 20) - 5;
-        Debug.Log(r);
+        float r = (Random.value * 17.5f) - 2;
+        // Debug.Log(r);
 
-        if (Input.GetKey(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space))
         {
-            Vector3 spawnPoint = spawnTransform.position;
-            spawnPoint.x = r;
-
+            Vector3 spawnPoint = new Vector3(r, spawnTransform.position.y, spawnTransform.position.z);
+            
             Instantiate(ballPrefab, spawnPoint, Quaternion.identity);
         }
     }
